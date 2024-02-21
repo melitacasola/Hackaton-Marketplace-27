@@ -1,5 +1,5 @@
-import CustomError from "../../config/error";
-import allServices from "../services/services.service";
+import CustomError from "../../config/error.js";
+import allServices from "../services/services.service.js";
 
 const getAllServices = async(req, res) => {
     try {

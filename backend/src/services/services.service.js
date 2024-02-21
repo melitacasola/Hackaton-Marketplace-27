@@ -1,4 +1,4 @@
-import Services from '../models/services.model';
+import Services from '../models/services.model.js';
 
 const allServices = async() => {
     const listServices = await Services.findAll();

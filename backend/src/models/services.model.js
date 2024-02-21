@@ -1,16 +1,17 @@
 import { DataTypes, UUIDV4 } from "sequelize";
-import db from '../../config/db';
+import db from '../../config/db.js';
 
 const Services = db.define(
     "services",
     {
         id: {
-            types: DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false,
+            primaryKey: true,
             defaultValue: UUIDV4()
         },
         service_name: {
-            types: DataTypes.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         }
     },
@@ -21,7 +22,3 @@ const Services = db.define(
 );
 
 export default Services;
-
-
-
-
