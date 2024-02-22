@@ -1,6 +1,7 @@
 import { Op } from'sequelize';
 import MetaCoders from "../models/metacoders.model.js";
 import uploadImages from '../utils/up.images.js';
+import Stacks from "../models/stacks.model.js";
 
 const MetacodersService ={
     getAllMetacoders: async()=>{

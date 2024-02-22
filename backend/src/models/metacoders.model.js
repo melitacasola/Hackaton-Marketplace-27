@@ -28,9 +28,14 @@ const MetaCoders = db.define(
         },
         contact_mail: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         location: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        client_description: {
             type: DataTypes.STRING,
             allowNull: false
         },
