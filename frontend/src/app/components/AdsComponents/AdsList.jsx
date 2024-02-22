@@ -13,7 +13,8 @@ const AdsList = ({ query }) => {
     const { ads, loading, error } = useFetchApi(urlApi);
 
     let filterQuery = []
-
+    filterQuery = filterData(ads, query)
+    
     useEffect(() => {
         filterQuery = filterData(ads, query)
         setListAds(filterQuery)
@@ -30,7 +31,7 @@ const AdsList = ({ query }) => {
     return (
         <div>
             {
-                !adsList ?
+                !ads ?
                     adsList?.map((ads) => (
                         <AdsComponent ads={ads} />
                     ))

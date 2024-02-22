@@ -2,7 +2,6 @@ import Link from "next/link"
 
 
 const AdsComponent = ({ads}) => {
-    console.log('que lleg aca', ads);
 
     return (
         <div>
