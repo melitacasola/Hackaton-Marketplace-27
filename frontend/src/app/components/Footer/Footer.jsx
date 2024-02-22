@@ -21,7 +21,7 @@ const Footer = () => {
     </div>
     <div className="flex flex-col">
         <div className="border-t-2  border-text-color mx-10"></div>
-    <p  className="text-text-color text-center my-4">Politica de privicidad - Politica de cookies - Nota legal - Mapa web</p>
+    <p  className="text-text-color text-center font-semibold my-4">Politica de privicidad - Politica de cookies - Nota legal - Mapa web</p>
     <div className="flex row justify-center items-center"><MdCopyright className="text-text-color"/><p className="text-text-color">MetaCoders y entidades relacionadas. Reservados todos los derechos</p>
    </div>
     </div>
