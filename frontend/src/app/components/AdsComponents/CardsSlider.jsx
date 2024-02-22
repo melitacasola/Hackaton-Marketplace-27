@@ -17,7 +17,7 @@ const CardsSlider = () => {
     }
   return (
     <div>
-        <Card ads={ads}/>
+        <Card card={ads}/>
     </div>
   )
 }
