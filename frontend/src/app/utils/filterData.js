@@ -1,8 +1,7 @@
-export const filterData = (data, searchParam = "") => {
-    
-    if (!searchParam) {
-      return data; 
-    }
+
+export const filterData = (data, searchParam='') => {
+
+    if (searchParam.length === 0) return data; 
 
     const searchTermLowerCase = searchParam.toLowerCase();
 
@@ -11,9 +10,7 @@ export const filterData = (data, searchParam = "") => {
         
         return clientFilter.includes(searchTermLowerCase);
     });
-
-    console.log('Datos filtrados:', filteredClient);
-    
+   
     return filteredClient;
 
 };
