@@ -4,9 +4,11 @@ import routerStack from "./v1/routes/stacks.route.js";
 import routerMetacoder from "./v1/routes/metacoders.route.js";
 import routerMetaCodersStacks from "./v1/routes/metacodersstacks.route.js";
 import morgan from "morgan";
+import cors from "cors";
 
 const server = express();
 
+server.use(cors());
 server.use(morgan('dev'));
 
 server.use(express.json());
