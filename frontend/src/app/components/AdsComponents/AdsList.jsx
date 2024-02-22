@@ -29,12 +29,12 @@ const AdsList = ({query}) => {
 
     return (
         <div>
-            {
+            {/* {
                 filterQuery?.map((ads) =>(
                     
-                    <AdsComponent ads={ads} key={ads.metacoder_id} />
-                ))
-            }
+                    ))
+                } */}
+                <AdsComponent ads={ads} key={ads.metacoder_id} />
         
         </div>
     )

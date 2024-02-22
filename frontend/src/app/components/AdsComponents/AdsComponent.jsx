@@ -11,7 +11,7 @@ const AdsComponent = ({ads}) => {
                     {Array.isArray(ads) && ads.map((item) =>(
                         <li key={item.metacoder_id} className="flex row bg-bg-header gap-x-36 items-center px-16 m-4 justify-between p-6 rounded-lg">
                             
-                            <Link  href={`/details/${item.stack_id}`}>
+                            <Link  href={`/details/${item.metacoder_id}`}>
                                 <h3 className="font-semibold">{item.metacoders_ads[0].client_firstname}</h3>
                                 <h3 className="font-semibold">{item.metacoders_ads[0].client_lastname}</h3>
                             </Link>

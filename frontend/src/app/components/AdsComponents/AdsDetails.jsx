@@ -1,12 +1,29 @@
+'use client'
+
+import { useFetchApi } from "@/app/services/useFetchApi"
 import CardsSlider from "./CardsSlider"
+import { usePathname } from "next/navigation"
 
 
 const AdsDetails = () => {
+    const pathname = usePathname().split('/')
+
+    const { ads, loading, error } = useFetchApi('http://localhost:3200/api/v1/metacoders/' + pathname[2])
+    
+    if (loading) {
+        return <div>Cargando...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
+
     return (
         <>
             <section className="m-20 flex row gap-x-8">
                 <article>
-                    <p>aca iria una imagen</p>
+                    <p></p>
                 </article>
                 <article>
                     <h3 className="text-start text-5xl font-semibold ">Portfolio</h3>
