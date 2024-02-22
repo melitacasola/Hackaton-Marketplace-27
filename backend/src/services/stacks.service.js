@@ -33,7 +33,8 @@ const StacksService =  {
         try {
             const stack = await Stacks.findAll({
                 include: {
-                    model: Services
+                    model: Services,
+                    attributes: ['service_name'],
                 },
                 where: {
                     stack_name: {
