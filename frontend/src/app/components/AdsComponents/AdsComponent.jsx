@@ -7,9 +7,9 @@ const AdsComponent = ({ads}) => {
         <div>
             <ul className="m-4">
                 {
-                    ads?.map((item) =>(
+                    ads.data?.map((item) =>(
                         <li key={item.id} className="flex row bg-bg-header m-4 justify-between p-6 rounded-lg">
-                            <Link  href={`/details/${item.id}`}>
+                            <Link  href={`/details/${item.tack_id}`}>
                                 <h3 className="font-semibold">{item.name}</h3>
                             </Link>
                             
