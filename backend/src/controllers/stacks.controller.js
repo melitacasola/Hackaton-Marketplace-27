@@ -8,22 +8,17 @@ const StacksController = {
             const name = req.query.name
             const service = req.query.service
 
-            let listStacks
-            if (!name || !service) {
-                listStacks = await StacksService.getAllStacks()
-                if (!listStacks || listStacks.length === 0) throw CustomError.notfound("Request to StacksService failed not found") 
-            }
+            let listStacks = []
 
-            if (name) {
-                listStacks = await StacksService.getStackByName(name)
-                if (!listStacks || listStacks.length === 0) throw CustomError.notfound("Request to StacksService failed not found")  
-            }
-            if (service) {
-                listStacks = await StacksService.getStackByService(service)    
-                if (!listStacks || listStacks.length === 0) throw CustomError.notfound("Request to StacksService failed not found")     
-            }
-        
+            if (!name || !service) listStacks = await StacksService.getAllStacks()
+
+            if (name) listStacks = await StacksService.getStackByName(name)
+
+            if (service) listStacks = await StacksService.getStackByService(service)                     
+       
+            if (!listStacks || listStacks.length === 0) throw CustomError.notfound("Request to StacksService failed not found")
             res.status(200).json({data: listStacks})
+
         } catch (error) {
             handlerError(error, res)
         }
