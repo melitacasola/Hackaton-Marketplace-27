@@ -1,7 +1,6 @@
 create database db_metacoders;
 use db_metacoders;
 
-
 create table services(
 	id varchar(40) primary key,
     service_name varchar(50) not null
@@ -14,13 +13,11 @@ INSERT INTO services (id, service_name) VALUES
 (UUID(), 'Data Science'),
 (UUID(), 'Design UX/UI');
 
-
 create table stacks(
 	id  varchar(40) primary key,
     stack_name varchar(50) not null,
     service_id varchar(40), 
     foreign key (service_id) references services(id)
-    
 );
 
 INSERT INTO stacks (id, stack_name, service_id) VALUES 
@@ -35,6 +32,7 @@ create table metacoders_ads (
 	id varchar(40) primary key,
     client_firstname varchar(50),
     client_lastname varchar(50),
+    client_img varchar(300),
     contact_num varchar(15),
     contact_mail varchar(150),
     location varchar(150),
@@ -42,10 +40,10 @@ create table metacoders_ads (
     );
 
 
-INSERT INTO metacoders_ads (id, client_firstname, client_lastname, contact_num, contact_mail, location) VALUES 
-(UUID(), 'Jander', 'Perez', '1234567890', 'jander@example.com', 'Madrid'),
-(UUID(), 'Steven', 'Smith', '0987654321', 'steven@example.com', 'Barcelona'),
-(UUID(), 'Jonathan', 'Johnson', '9876543210', 'jonathan@example.com', 'Asturias');
+INSERT INTO metacoders_ads (id, client_firstname, client_lastname, client_img, contact_num, contact_mail, location) VALUES 
+(UUID(), 'Jander', 'Perez', 'https://i.pinimg.com/736x/fe/d2/6f/fed26ff1a4524f1f2d1b9d7f522a255a.jpg', '1234567890', 'jander@example.com', 'Madrid'),
+(UUID(), 'Steven', 'Smith','https://th.bing.com/th/id/OIP.OR3DBe2yOZLuantH-NPz_gAAAA?rs=1&pid=ImgDetMain', '0987654321', 'steven@example.com', 'Barcelona'),
+(UUID(), 'Jonathan', 'Johnson','https://th.bing.com/th/id/OIP._HP6IAXAREFsV9fp33w2GAHaHa?rs=1&pid=ImgDetMain', '9876543210', 'jonathan@example.com', 'Asturias');
 
 create table metacoders_stacks (
 	stack_id varchar(40), 
@@ -74,7 +72,7 @@ INSERT INTO users (id, user_email, user_password) VALUES
 create table comments(
 	id varchar(40) primary key,
     `description` varchar(255),
-    rating int(5),
+    rating int,
     user_id varchar(40),
     metacoder_id varchar(40),
     foreign key (user_id) references users(id),
