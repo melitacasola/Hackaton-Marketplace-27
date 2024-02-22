@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import db from '../../config/db.js';
+import Stacks from "./stacks.model.js";
 
 const MetaCodersStacks = db.define(
     "metaCodersStacks",
