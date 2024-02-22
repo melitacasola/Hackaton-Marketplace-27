@@ -1,11 +1,12 @@
+import AdsDetails from '@/app/components/AdsComponents/AdsDetails'
 import React from 'react'
 
 const pageDetails = () => {
-  return (
-    <div>
-      <h1>HOLUSS GENTE BEIA</h1>
-    </div>
-  )
+    return (
+        <div>
+            <AdsDetails />
+        </div>
+    )
 }
 
 export default pageDetails

@@ -1,10 +1,9 @@
 "use client"
-import AdsComponent from "./AdsComponent"
+
+import Card from "./Card"
 import { useFetchApi } from '@/app/utils/useFetchApi';
 
-
-
-const AdsList = () => {
+const CardsSlider = () => {
     const urlApi = 'http://localhost:3200/api/v1/coders-stack'
 
     const { ads, loading, error } = useFetchApi(urlApi);
@@ -16,13 +15,11 @@ const AdsList = () => {
     if (error) {
         return <div>Error: {error.message}</div>;
     }
-
-
-    return (
-        <div>
-            <AdsComponent ads={ads}/>
-        </div>
-    )
+  return (
+    <div>
+        <Card ads={ads}/>
+    </div>
+  )
 }
 
-export default AdsList
+export default CardsSlider

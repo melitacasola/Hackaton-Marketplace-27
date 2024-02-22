@@ -25,7 +25,14 @@ INSERT INTO stacks (id, stack_name, service_id) VALUES
 (UUID(), 'Java', (SELECT id FROM services WHERE service_name = 'Backend Development')),
 (UUID(), 'React Native', (SELECT id FROM services WHERE service_name = 'Frontend Development')),
 (UUID(), 'TensorFlow', (SELECT id FROM services WHERE service_name = 'Data Science')),
-(UUID(), 'Figma', (SELECT id FROM services WHERE service_name = 'Design UX/UI'));
+(UUID(), 'Figma', (SELECT id FROM services WHERE service_name = 'Design UX/UI')),
+(UUID(), 'Angular', (SELECT id FROM services WHERE service_name = 'Frontend Development')),
+(UUID(), 'Python Flask', (SELECT id FROM services WHERE service_name = 'Backend Development')),
+(UUID(), 'Vue.js', (SELECT id FROM services WHERE service_name = 'Frontend Development')),
+(UUID(), 'Python', (SELECT id FROM services WHERE service_name = 'Backend Development')),
+(UUID(), 'Django', (SELECT id FROM services WHERE service_name = 'Backend Development')),
+(UUID(), 'Node.js', (SELECT id FROM services WHERE service_name = 'Backend Development')),
+(UUID(), 'PyTorch', (SELECT id FROM services WHERE service_name = 'Data Science'));
 
 
 create table metacoders_ads (
@@ -36,14 +43,29 @@ create table metacoders_ads (
     contact_num varchar(15),
     contact_mail varchar(150),
     location varchar(150),
+    client_description varchar(300),
     is_active boolean default true
     );
 
-
-INSERT INTO metacoders_ads (id, client_firstname, client_lastname, client_img, contact_num, contact_mail, location) VALUES 
-(UUID(), 'Jander', 'Perez', 'https://i.pinimg.com/736x/fe/d2/6f/fed26ff1a4524f1f2d1b9d7f522a255a.jpg', '1234567890', 'jander@example.com', 'Madrid'),
-(UUID(), 'Steven', 'Smith','https://th.bing.com/th/id/OIP.OR3DBe2yOZLuantH-NPz_gAAAA?rs=1&pid=ImgDetMain', '0987654321', 'steven@example.com', 'Barcelona'),
-(UUID(), 'Jonathan', 'Johnson','https://th.bing.com/th/id/OIP._HP6IAXAREFsV9fp33w2GAHaHa?rs=1&pid=ImgDetMain', '9876543210', 'jonathan@example.com', 'Asturias');
+INSERT INTO metacoders_ads (
+    id,
+    client_firstname,
+    client_lastname,
+    client_img,
+    contact_num,
+    contact_mail,
+    location,
+    client_description
+) VALUES 
+    (UUID(), 'Jander', 'Perez', 'https://randomuser.me/api/portraits/men/10.jpg', '1234567890', 'jander@example.com', 'Madrid', 'Web developer with expertise in frontend technologies.'),
+    (UUID(), 'Steven', 'Smith', 'https://randomuser.me/api/portraits/men/14.jpg', '0987654321', 'steven@example.com', 'Barcelona', 'Experienced full-stack developer with a focus on backend systems.'),
+    (UUID(), 'Jonathan', 'Johnson', 'https://randomuser.me/api/portraits/men/4.jpg', '9876543210', 'jonathan@example.com', 'Asturias', 'Passionate software engineer with a strong background in cloud computing.'),
+    (UUID(), 'Emma', 'Taylor', 'https://randomuser.me/api/portraits/women/1.jpg', '1122334455', 'emma@example.com', 'Valencia', 'Frontend developer passionate about user experience.'),
+    (UUID(), 'Daniel', 'Brown', 'https://randomuser.me/api/portraits/men/2.jpg', '5544332211', 'daniel@example.com', 'Seville', 'Experienced full-stack developer with expertise in Node.js and React.'),
+    (UUID(), 'Sophie', 'Miller', 'https://randomuser.me/api/portraits/women/3.jpg', '9988776655', 'sophie@example.com', 'Malaga', 'Software engineer specializing in cloud architecture and microservices.'),
+    (UUID(), 'Isabella', 'Anderson', 'https://randomuser.me/api/portraits/women/4.jpg', '1231231234', 'isabella@example.com', 'Granada', 'Passionate backend developer with a focus on data management.'),
+    (UUID(), 'William', 'White', 'https://randomuser.me/api/portraits/men/5.jpg', '4564564567', 'william@example.com', 'Bilbao', 'Full-stack developer with expertise in Python and Django.'),
+    (UUID(), 'Olivia', 'Moore', 'https://randomuser.me/api/portraits/women/6.jpg', '7897897890', 'olivia@example.com', 'Zaragoza', 'DevOps engineer specializing in automation and deployment.');
 
 create table metacoders_stacks (
 	stack_id varchar(40), 
@@ -56,7 +78,13 @@ create table metacoders_stacks (
 INSERT INTO metacoders_stacks (stack_id, metacoder_id) VALUES 
 ((SELECT id FROM stacks WHERE stack_name = 'MERN Stack'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Jander')),
 ((SELECT id FROM stacks WHERE stack_name = 'React Native'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Steven')),
-((SELECT id FROM stacks WHERE stack_name = 'Java'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Jonathan'));
+((SELECT id FROM stacks WHERE stack_name = 'Java'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Jonathan')),
+((SELECT id FROM stacks WHERE stack_name = 'Angular'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Emma')),
+((SELECT id FROM stacks WHERE stack_name = 'Python Flask'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Daniel')),
+((SELECT id FROM stacks WHERE stack_name = 'Vue.js'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Sophie')),
+((SELECT id FROM stacks WHERE stack_name = 'Angular'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Isabella')),
+((SELECT id FROM stacks WHERE stack_name = 'Node.js'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'William')),
+((SELECT id FROM stacks WHERE stack_name = 'PyTorch'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Olivia'));
 
 create table users(
 	id varchar(40) primary key,
@@ -84,4 +112,3 @@ INSERT INTO comments (id, `description`, rating, user_id, metacoder_id) VALUES
 (UUID(), 'Great service!', 5, (SELECT id FROM users WHERE user_email = 'user1@example.com'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Jander')),
 (UUID(), 'Could be better.', 3, (SELECT id FROM users WHERE user_email = 'user2@example.com'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Steven')),
 (UUID(), 'Very professional.', 4, (SELECT id FROM users WHERE user_email = 'user3@example.com'), (SELECT id FROM metacoders_ads WHERE client_firstname = 'Jonathan'));
-
