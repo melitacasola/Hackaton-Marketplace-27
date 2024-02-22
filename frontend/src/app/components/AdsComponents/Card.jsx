@@ -6,7 +6,7 @@ import Link from "next/link";
 const Card = ({card}) => {
 
     const { ads, loading, error } = useFetchApi('http://localhost:3200/api/v1/metacoders/')
-    console.log(ads);
+    
     if (loading) {
         return <div>Cargando...</div>;
     }
