@@ -1,5 +1,6 @@
 import { Op } from'sequelize';
 import MetaCoders from "../models/metacoders.model.js";
+import uploadImages from '../utils/up.images.js';
 
 const MetacodersService ={
     getAllMetacoders: async()=>{
@@ -48,7 +49,10 @@ const MetacodersService ={
     },
     createMetacoder: async(metacoder)=>{
         try {
-            const createMetacoder = await MetaCoders.create(metacoder);
+            const imageObj = await uploadImages(metacoder.client_img);
+            console.log(imageObj);
+            const image = imageObj.secure_url;
+            const createMetacoder = await MetaCoders.create({...metacoder, client_img: image});
             return createMetacoder;
         } catch (error) {
             console.log(error);

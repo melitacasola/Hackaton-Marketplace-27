@@ -18,6 +18,10 @@ const MetaCoders = db.define(
             type: DataTypes.STRING,
             allowNull: false
         },
+        client_img: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         contact_num: {
             type: DataTypes.STRING,
             allowNull: false

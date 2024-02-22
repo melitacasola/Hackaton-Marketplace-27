@@ -39,7 +39,10 @@ const MetacodersController ={
             if (!req.body.firstName) throw CustomError.badRequest("no metacoder name provided")
             if (!req.body.lastName) throw CustomError.badRequest("no metacoder name provided")
             if (!req.body.location) throw CustomError.badRequest("no metacoder location provided")
+            if (!req.body.email) throw CustomError.badRequest("no metacoder email provided")
+            if (!req.body.client_img) throw CustomError.badRequest("no metacoder image provided")
 
+            console.log(req.body)
             const createMetacoder = await MetacodersService.createMetacoder(req.body)
             
             res.status(201).json({data: createMetacoder})
