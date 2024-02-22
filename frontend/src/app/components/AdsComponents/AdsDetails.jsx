@@ -3,6 +3,11 @@
 import { useFetchApi } from "@/app/services/useFetchApi"
 import CardsSlider from "./CardsSlider"
 import { usePathname } from "next/navigation"
+import Image from "next/image"
+import { FaCheckCircle } from "react-icons/fa";
+import { CiMail } from "react-icons/ci";
+import { FaPhone } from "react-icons/fa6";
+import { ImLocation } from "react-icons/im";
 
 
 const AdsDetails = () => {
@@ -21,19 +26,38 @@ const AdsDetails = () => {
 
     return (
         <>
-            <section className="m-20 flex row gap-x-8">
+            <div className="flex flex-row mt-20 justify-center">
+
+                <FaCheckCircle className="text-text-color w-12 h-12 mr-6"/><h3 className="text-center  text-5xl font-semibold ">Portfolio</h3>
+            </div>
+            <section className="mx-20 flex row gap-x-8">
                 <article>
-                    <p></p>
+                    <Image 
+                    src={ads.client_img}
+                    alt={`picture to ${ads.client_firstname} ${ads.client_lastname}`}
+                    width='300'
+                    height='300'
+                    className="rounded-full"/>
                 </article>
-                <article>
-                    <h3 className="text-start text-5xl font-semibold ">Portfolio</h3>
-                    <h4 className="text-start text-3xl font-semibold my-6">nombre y apellido</h4>
-                    <p className="text-start text-2xl font-semibold my-6">correo electronico</p>
-                    <p className="text-start text-2xl font-semibold my-6">telefono</p>
-                    <p className="text-start text-2xl font-semibold my-6">ubicacion</p>
+                <article className="px-24">
+                    <h3 className="text-start text-4xl font-bold mt-12">{ads.client_firstname} {ads.client_lastname}</h3>
+                    <div className="flex flex-row items-center">
+                        <CiMail className="w-10 h-10 mr-6 font-semibold"/>
+
+                        <p className="text-start text-2xl font-semibold my-6">{ads.contact_mail}</p>
+                    </div>
+                    <div className="flex flex-row items-center">
+                        <FaPhone className="w-8 h-8 mr-6 font-semibold"/>
+
+                        <p className="text-start text-2xl font-semibold my-6">{ads.contact_num}</p>
+                    </div>
+                    <div className="flex flex-row items-center">
+                        <ImLocation className="w-10 h-10 mr-6 font-semibold"/>
+                        <p className="text-start text-2xl font-semibold my-6">{ads.location}</p>
+                    </div>
                 </article>
             </section>
-            <p className="mx-24 text-center text-3xl font-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet mauris eros. Maecenas dictum mattis neque sit amet fermentum. Suspendisse tempor mattis tempor. Nulla facilisi. Donec vel leo sit amet mauris consectetur scelerisque. Nunc sit amet orci hendrerit, finibus magna a, viverra urna. Nunc vestibulum leo at metus auctor congue. In quis lobortis metus.</p>
+            <p className="mx-24 my-16 text-center text-3xl font-semibold">{ads.client_description}</p>
 
             <section className="m-14">
                 <CardsSlider />

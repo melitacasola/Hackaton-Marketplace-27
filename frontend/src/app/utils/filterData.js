@@ -1,6 +1,4 @@
-export const filterData = (data, searchParam) => {
-
-    console.log(searchParam);
+export const filterData = (data, searchParam = "") => {
     
     if (!searchParam) {
       return data; 
@@ -8,7 +6,6 @@ export const filterData = (data, searchParam) => {
 
     const searchTermLowerCase = searchParam.toLowerCase();
 
-    // filtrar -> location / stack 
     const filteredClient = data?.filter(entry => {
         const clientFilter = entry.metacoders_ads[0].location.toLowerCase();
         
