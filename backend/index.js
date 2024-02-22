@@ -1,11 +1,11 @@
-import express from "express";
-import routerService from "./src/v1/routes/services.route.js";
+import server from "./src/server.js";
 
-const app = express();
-const PORT = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
-app.use('/api/v1', routerService)
-
-app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT}`);
-});
+  try {
+    server.listen(port, () => {
+      console.log(`🚀 listening at ${port} 🚀`); 
+    });
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }

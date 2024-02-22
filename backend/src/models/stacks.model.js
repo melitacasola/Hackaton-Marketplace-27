@@ -1,5 +1,6 @@
 import { DataTypes, UUIDV4 } from "sequelize";
 import db from '../../config/db.js';
+import Services from "./services.model.js";
 
 const Stacks = db.define(
     "stacks",
@@ -25,8 +26,15 @@ const Stacks = db.define(
     },
 );
 
-Stacks.hasMany(Services);
-Services.belongsTo(Stacks);
+Stacks.hasMany(Services,{
+    foreignKey: 'id',
+    sourceKey: 'service_id'
+  });
+
+Services.belongsTo(Stacks,{
+    foreignKey: 'id',
+    targetKey: 'id'
+  })
 
 export default Stacks;
 
