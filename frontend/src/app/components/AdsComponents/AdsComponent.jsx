@@ -2,13 +2,15 @@ import Link from "next/link"
 
 
 const AdsComponent = ({ads}) => {
+    console.log('que lleg aca', ads);
 
     return (
         <div>
             <ul className="m-4 w-full">
-                {
-                    ads?.map((item) =>(
-                        <li key={item.stack_id} className="flex row bg-bg-header gap-x-36 items-center px-16 m-4 justify-between p-6 rounded-lg">
+                
+                    {Array.isArray(ads) && ads.map((item) =>(
+                        <li key={item.metacoder_id} className="flex row bg-bg-header gap-x-36 items-center px-16 m-4 justify-between p-6 rounded-lg">
+                            
                             <Link  href={`/details/${item.stack_id}`}>
                                 <h3 className="font-semibold">{item.metacoders_ads[0].client_firstname}</h3>
                                 <h3 className="font-semibold">{item.metacoders_ads[0].client_lastname}</h3>

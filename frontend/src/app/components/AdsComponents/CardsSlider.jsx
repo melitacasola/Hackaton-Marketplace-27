@@ -1,7 +1,7 @@
 "use client"
 
 import Card from "./Card"
-import { useFetchApi } from '@/app/utils/useFetchApi';
+import { useFetchApi } from '@/app/services/useFetchApi';
 
 const CardsSlider = () => {
     const urlApi = 'http://localhost:3200/api/v1/coders-stack'
