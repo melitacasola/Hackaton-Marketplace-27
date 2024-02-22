@@ -1,35 +1,23 @@
-import Card from "./Card"
+"use client"
 
+import Card from "./Card"
+import { useFetchApi } from '@/app/utils/useFetchApi';
 
 const CardsSlider = () => {
-    let ads_client = [
-        {
-        "id": "01",
-        "name": "JUAN", 
-        "age" : 25,  
-        "profession":"Developer",
-        "advertisement":"miprofiolllesta en linkedin pasate a verlos",
-    },
-    {
-        
-        "id": "04",
-        "name": "TANIA",
-        "age" :30,
-        "profession":"Designer",
-        "advertisement":"Busco un trabajo en una empresa que me permita crecer como diseñadora."
-    
-    },
-    {
-        "id": "05",
-        "name": "PEDRO",
-        "age" :45,
-        "profession":"Manager", 
-        "advertisement":"Estoy buscando un puesto para mi nuevo equipo. Me interesa trabajar con gente joven y con experiencia."
+    const urlApi = 'http://localhost:3200/api/v1/coders-stack'
+
+    const { ads, loading, error } = useFetchApi(urlApi);
+
+    if (loading) {
+        return <div>Cargando...</div>;
     }
-    ]
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
   return (
     <div>
-        <Card ads={ads_client}/>
+        <Card ads={ads}/>
     </div>
   )
 }
