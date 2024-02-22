@@ -2,21 +2,22 @@
 import { filterData } from "@/app/utils/filterData";
 import AdsComponent from "./AdsComponent"
 import { useFetchApi } from '@/app/services/useFetchApi';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 
 
-const AdsList = ({query}) => {
-    const urlApi = 'http://localhost:3200/api/v1/coders-stack'
+const AdsList = ({ query }) => {
+    const urlApi = `http://localhost:3200/api/v1/coders-stack`
 
-    const [adsList, setAds] = useState([]);
-
+    const [adsList, setListAds] = useState([]);
     const { ads, loading, error } = useFetchApi(urlApi);
 
-    
-    const filterQuery = filterData(ads, query)
-    console.log(ads);
-    console.log(filterQuery);
+    let filterQuery = adsList
+
+    useEffect(() => {
+        filterQuery = filterData(ads, query)
+        setListAds(filterQuery)
+    }, [query])
 
     if (loading) {
         return <div>Cargando...</div>;
@@ -26,16 +27,16 @@ const AdsList = ({query}) => {
         return <div>Error: {error.message}</div>;
     }
 
-
     return (
         <div>
-            {/* {
-                filterQuery?.map((ads) =>(
-                    
+            {
+                !adsList ?
+                     adsList?.map((ads) => (
+                        <AdsComponent ads={ads} />
                     ))
-                } */}
-                <AdsComponent ads={ads} key={ads.metacoder_id} />
-        
+                    : <AdsComponent ads={adsList} />
+            }
+
         </div>
     )
 }

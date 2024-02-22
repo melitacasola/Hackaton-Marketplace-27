@@ -2,10 +2,9 @@ import Link from "next/link"
 
 
 const AdsComponent = ({ads}) => {
-    console.log('que lleg aca', ads);
-
+    console.log('AdsComponent',ads);
     return (
-        <div>
+        <>
             <ul className="m-4 w-full">
                 
                     {Array.isArray(ads) && ads.map((item) =>(
@@ -30,7 +29,7 @@ const AdsComponent = ({ads}) => {
                 }
             </ul>
         
-        </div>
+        </>
     )
 }
 
