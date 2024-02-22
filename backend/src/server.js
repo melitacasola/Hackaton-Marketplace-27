@@ -10,8 +10,8 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 
 server.use('/api/v1', routerService)
+server.use('/api/v1', routerMetaCodersStacks)
 server.use('/api/v1', routerStack)
 server.use('/api/v1', routerMetacoder);
-server.use('/api/v1', routerMetaCodersStacks)
 
 export default server;

@@ -1,8 +1,10 @@
 import { DataTypes } from "sequelize";
 import db from '../../config/db.js';
+import Stacks from "./stacks.model.js"; 
+import MetaCoders from "./metacoders.model.js";
 
 const MetaCodersStacks = db.define(
-    "metaCodersStacks",
+    "metacoders_stacks",
     {
         stack_id: {
             type: DataTypes.STRING,
@@ -22,25 +24,23 @@ const MetaCodersStacks = db.define(
 );
 
 MetaCodersStacks.hasMany(Stacks, {
-    foreignKey: 'stack_id',
-    sourceKey: 'id'
-})
-
-Stacks.belongsTo(MetaCodersStacks,{
     foreignKey: 'id',
     sourceKey: 'stack_id'
 })
 
-
-MetaCodersStacks.hasMany(Metacoders, {
-    foreignKey: 'metacoder_id',
+Stacks.belongsTo(MetaCodersStacks,{
+    foreignKey: 'id',
     sourceKey: 'id'
 })
 
-MetaCoders.belongsTo(MetaCodersStacks, {
+MetaCodersStacks.hasMany(MetaCoders, {
     foreignKey: 'id',
     sourceKey: 'metacoder_id'
 })
 
+MetaCoders.belongsTo(MetaCodersStacks, {
+    foreignKey: 'id',
+    sourceKey: 'id'
+})
 
 export default MetaCodersStacks;

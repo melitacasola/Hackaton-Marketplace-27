@@ -1,5 +1,6 @@
 import CustomError from "../../config/error.js"
 import MetaCodersStacksService from "../services/metacodersstacks.service.js"
+import handlerError from "../utils/handler.error.js"
 
 const MetaCodersStacksController = {
     getAllStacksController: async (req, res) => {
@@ -8,16 +9,22 @@ const MetaCodersStacksController = {
             const metacoder_id = req.query.metacoder_id
 
             let listMetaCodersStacks = []
+            
             if (!stack_id && !metacoder_id) {
                 listMetaCodersStacks = await MetaCodersStacksService.getAllMetaCodersStacks()
             }
             if (stack_id && !metacoder_id) {
-                listMetaCodersStacks = await MetaCodersStacksService.getAllMetaCodersStacks(stack_id)
+                listMetaCodersStacks = await MetaCodersStacksService.getAllStacksById(stack_id)
 
-            } else {
-                listMetaCodersStacks = await MetaCodersStacksService.getAllMetaCodersStacks(metacoder_id)
+            } 
+            if (!stack_id && metacoder_id) {
+                listMetaCodersStacks = await MetaCodersStacksService.getAllMetacoderById(metacoder_id)
             }
+
+            
             if (!listMetaCodersStacks || listMetaCodersStacks.length === 0) throw CustomError.notfound("Request to MetaCodersStacksService not found")
+           
+            
             res.status(200).json({ data: listMetaCodersStacks })
         }
         catch (error) {
@@ -25,6 +32,5 @@ const MetaCodersStacksController = {
         }
     }
 }
-
 
 export default MetaCodersStacksController;
