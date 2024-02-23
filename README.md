@@ -83,14 +83,15 @@ Esto garantiza una experiencia de usuario fluida y sin problemas mientras explor
 ```npm install```
 
 4. Variables de Entorno: dentro encontrarás un archivo .env.template que te guiará de qué variables debes crear dentro de tu archivo .env para poder ejecutar el servidor y contectarte a la base de datos
-   
-5. Ejecución
+5. Encontrarás en la carpeta Backend el directorio ```database``` contiene los comandos para que ejecutes en tu mySql, y puedas crear la base de datos para tu servidor!
+6. Ejecución
+   *es importante que cuentes con versión superior a NodeJS 18.0.0
 Para ejecutar la aplicación en un entorno de desarrollo:
 para ello deberás abrir dos terminales, una dentro del directorio de backend y ejecutarás el comando
 
 ```npm starr```
 
-posteriormente en el directorio de frontend y ejecutarás el comando
+posteriormente en el directorio de frontend, ejecutarás el comando
 
 ```npm run dev```
 
@@ -98,7 +99,7 @@ posteriormente en el directorio de frontend y ejecutarás el comando
 **La aplicación estará disponible en http://localhost:3000*
 
 
-## Estrurctura del Proyecto
+## Estructura del Proyecto
 
 Proyecto
 │   README.md
