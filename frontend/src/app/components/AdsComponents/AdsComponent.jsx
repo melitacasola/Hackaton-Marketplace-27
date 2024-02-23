@@ -3,6 +3,7 @@ import Link from "next/link"
 
 const AdsComponent = ({ads}) => {
     console.log('AdsComponent',ads);
+
     return (
         <>
             <ul className="m-4 w-full">
