@@ -200,12 +200,3 @@ Proyecto
 ¡TODAS las contribuciones a este repo son bienvenidas! Si encuentras mejoras o nuevas actualizaciones, no dudes en abrir un issue o enviar tu pull request. 
 
 
-
-## ¡Usado por! ##
-
-
-Este proyecto es utilizado por las siguientes empresas:
-
-- Empresa 1
-- Empresa 2
-
