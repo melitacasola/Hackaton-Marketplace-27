@@ -8,7 +8,7 @@ import { IoMdContacts } from "react-icons/io";
 const NavBar = () => {
     return (
         <div className="bg-bg-header py-6 px-10 items-center flex justify-between">
-             <Link href='/'>
+            <Link href='/'>
             
                 <Image 
                 src={Logo}

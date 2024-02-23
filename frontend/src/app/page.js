@@ -4,10 +4,11 @@ import Search from "./components/Search/Search";
 
 
 export default function Home({searchParams}) {
-  const query = searchParams?.name
+  const query = searchParams?.query
   return (
     <main className="flex min-h-screen flex-col items-center p-6">
       <Search />
+      
       <AdsList  query={query} />
     </main>
   );

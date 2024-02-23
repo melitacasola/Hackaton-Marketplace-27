@@ -13,7 +13,7 @@ import { ImLocation } from "react-icons/im";
 const AdsDetails = () => {
     const pathname = usePathname().split('/')
 
-    const { ads, loading, error } = useFetchApi('http://localhost:3200/api/v1/metacoders/' + pathname[2])
+    const { data, loading, error } = useFetchApi('http://localhost:3200/api/v1/metacoders/' + pathname[2])
     
     if (loading) {
         return <div>Cargando...</div>;
@@ -33,31 +33,31 @@ const AdsDetails = () => {
             <section className="mx-20 flex row gap-x-8">
                 <article>
                     <Image 
-                    src={ads.client_img}
-                    alt={`picture to ${ads.client_firstname} ${ads.client_lastname}`}
+                    src={data.client_img}
+                    alt={`picture to ${data.client_firstname} ${data.client_lastname}`}
                     width='300'
                     height='300'
                     className="rounded-full"/>
                 </article>
                 <article className="px-24">
-                    <h3 className="text-start text-4xl font-bold mt-12">{ads.client_firstname} {ads.client_lastname}</h3>
+                    <h3 className="text-start text-4xl font-bold mt-12">{data.client_firstname} {data.client_lastname}</h3>
                     <div className="flex flex-row items-center">
                         <CiMail className="w-10 h-10 mr-6 font-semibold"/>
 
-                        <p className="text-start text-2xl font-semibold my-6">{ads.contact_mail}</p>
+                        <p className="text-start text-2xl font-semibold my-6">{data.contact_mail}</p>
                     </div>
                     <div className="flex flex-row items-center">
                         <FaPhone className="w-8 h-8 mr-6 font-semibold"/>
 
-                        <p className="text-start text-2xl font-semibold my-6">{ads.contact_num}</p>
+                        <p className="text-start text-2xl font-semibold my-6">{data.contact_num}</p>
                     </div>
                     <div className="flex flex-row items-center">
                         <ImLocation className="w-10 h-10 mr-6 font-semibold"/>
-                        <p className="text-start text-2xl font-semibold my-6">{ads.location}</p>
+                        <p className="text-start text-2xl font-semibold my-6">{data.location}</p>
                     </div>
                 </article>
             </section>
-            <p className="mx-24 my-16 text-center text-3xl font-semibold">{ads.client_description}</p>
+            <p className="mx-24 my-16 text-center text-3xl font-semibold">{data.client_description}</p>
 
             <section className="m-14">
                 <CardsSlider />

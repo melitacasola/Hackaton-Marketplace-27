@@ -1,14 +1,13 @@
 import Link from "next/link"
 
 
-const AdsComponent = ({ads}) => {
-    console.log('que lleg aca', ads);
+const AdsComponent = ({data}) => {
 
     return (
         <div>
             <ul className="m-4 w-full">
                 
-                    {Array.isArray(ads) && ads.map((item) =>(
+                    {Array.isArray(data) && data.map((item) =>(
                         <li key={item.metacoder_id} className="flex row bg-bg-header gap-x-36 items-center px-16 m-4 justify-between p-6 rounded-lg">
                             
                             <Link  href={`/details/${item.metacoder_id}`}>

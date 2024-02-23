@@ -3,11 +3,11 @@
 import { useState, useEffect } from 'react';
 
 export const useFetchApi = (url) => {
-    const [ads, setAds] = useState([]);
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const fetchAds = async () => {
+    const fetchData = async () => {
         
         try {
             const response = await fetch(url);
@@ -15,7 +15,7 @@ export const useFetchApi = (url) => {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            setAds(data.data);
+            setData(data.data);
         } catch (error) {
             setError(error);
         } finally {
@@ -24,8 +24,8 @@ export const useFetchApi = (url) => {
     };
 
     useEffect(() => {
-        fetchAds();
+        fetchData();
     }, []);
 
-    return { ads, loading, error };
+    return { data, loading, error };
 };

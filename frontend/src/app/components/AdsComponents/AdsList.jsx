@@ -9,15 +9,10 @@ import { useState,useEffect } from "react";
 const AdsList = ({ query }) => {
     const urlApi = 'http://localhost:3200/api/v1/coders-stack'
 
-    const [adsList, setListAds] = useState([]);
-    const { ads, loading, error } = useFetchApi(urlApi);
 
-    let filterQuery = []
+    const { data, loading, error } = useFetchApi(urlApi);
+    const filteredData = filterData(data, query)
 
-    useEffect(() => {
-        filterQuery = filterData(ads, query)
-        setListAds(filterQuery)
-    }, [query])
 
     if (loading) {
         return <div>Cargando...</div>;
@@ -29,13 +24,8 @@ const AdsList = ({ query }) => {
 
     return (
         <div>
-            {
-                !adsList ?
-                    adsList?.map((ads) => (
-                        <AdsComponent ads={ads} />
-                    ))
-                    : <AdsComponent ads={adsList} />
-            }
+
+            {filteredData.length > 0 ? (<AdsComponent data={filteredData} />) : (<AdsComponent data={data} />)}
 
         </div>
     )

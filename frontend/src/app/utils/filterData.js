@@ -1,19 +1,12 @@
-export const filterData = (data, searchParam = "") => {
+export const filterData = (data, searchParam) => {
     
-    if (!searchParam) {
-      return data; 
-    }
+  let filteredData
 
-    const searchTermLowerCase = searchParam.toLowerCase();
-
-    const filteredClient = data?.filter(entry => {
-        const clientFilter = entry.metacoders_ads[0].location.toLowerCase();
-        
-        return clientFilter.includes(searchTermLowerCase);
-    });
-
-    console.log('Datos filtrados:', filteredClient);
-    
-    return filteredClient;
-
+  if(searchParam){
+    filteredData = data?.filter((entry)=> entry.metacoders_ads[0].location.toLowerCase().includes(searchParam.toLowerCase()))
+  }else{
+    filteredData = data
+  }
+    return filteredData;
+  
 };

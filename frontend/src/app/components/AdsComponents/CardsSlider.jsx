@@ -6,7 +6,7 @@ import { useFetchApi } from '@/app/services/useFetchApi';
 const CardsSlider = () => {
     const urlApi = 'http://localhost:3200/api/v1/coders-stack'
 
-    const { ads, loading, error } = useFetchApi(urlApi);
+    const { data, loading, error } = useFetchApi(urlApi);
 
     if (loading) {
         return <div>Cargando...</div>;
@@ -17,7 +17,7 @@ const CardsSlider = () => {
     }
   return (
     <div>
-        <Card card={ads}/>
+        <Card card={data}/>
     </div>
   )
 }
