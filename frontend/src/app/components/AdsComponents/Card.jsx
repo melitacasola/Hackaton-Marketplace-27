@@ -5,13 +5,6 @@ import Link from "next/link";
 
 const Card = ({card}) => {
     
-    if (loading) {
-        return <div>Cargando...</div>;
-    }
-
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
     return (
         <div className="grid grid-cols-3 gap-20 mx-24 my-16">
 
