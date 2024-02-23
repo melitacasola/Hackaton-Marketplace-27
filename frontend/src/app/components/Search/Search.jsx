@@ -20,7 +20,7 @@ const Search = () => {
         }, 300)
 
     return (
-        <div className=''>
+        <div className='flex justify-start'>
             <label htmlFor="search" className="sr-only">
                 Search
             </label>
