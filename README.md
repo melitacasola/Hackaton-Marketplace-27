@@ -45,7 +45,7 @@
 
 ## Autores ✒️
 
-- **Jander Gomez Barrueta** - [???](https://github.com/jander1016)
+- **Jander Gomez Barrueta** - [Jander](https://github.com/jander1016)
 - **Melissa Ines Casola** - [Melissa ](https://github.com/melitacasola)
 - **Jonathan Baragaño Carús** - [Johnny](https://github.com/JohnnyBC2022)
 - **Harold Stiven Diaz** - [Stiv?](https://github.com/stiv-32)
