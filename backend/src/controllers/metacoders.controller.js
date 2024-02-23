@@ -1,6 +1,7 @@
 import CustomError from "../../config/error.js";
 import MetacodersService from "../services/metacoders.service.js";
 import handlerError from "../utils/handler.error.js";
+import Validators from "../utils/validate.js";
 
 const MetacodersController ={
     getAllMetacoders: async(req, res) => {
@@ -40,6 +41,7 @@ const MetacodersController ={
             if (!req.body.lastName) throw CustomError.badRequest("no metacoder name provided")
             if (!req.body.location) throw CustomError.badRequest("no metacoder location provided")
             if (!req.body.email) throw CustomError.badRequest("no metacoder email provided")
+            if(req.body.email && !Validators.email().test(req.body.email)) throw CustomError.badRequest("no metacoder email provided for email address  " + req.body.email  + "")   //  TODO:   validate                
             if (!req.body.client_img) throw CustomError.badRequest("no metacoder image provided")
 
             console.log(req.body)
