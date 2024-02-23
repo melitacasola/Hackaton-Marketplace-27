@@ -7,11 +7,12 @@ import { useState,useEffect } from "react";
 
 
 const AdsList = ({ query }) => {
-    const urlApi = 'http://localhost:3200/api/v1/coders-stack'
 
+    const urlApi = 'http://localhost:3200/api/v1/coders-stack'
 
     const { data, loading, error } = useFetchApi(urlApi);
     const filteredData = filterData(data, query)
+
 
 
     if (loading) {
@@ -26,6 +27,7 @@ const AdsList = ({ query }) => {
         <div>
 
             {filteredData.length > 0 ? (<AdsComponent data={filteredData} />) : (<AdsComponent data={data} />)}
+
 
         </div>
     )

@@ -4,7 +4,6 @@ import Link from "next/link";
 
 
 const Card = ({card}) => {
-
     
     if (loading) {
         return <div>Cargando...</div>;
