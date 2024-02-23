@@ -1,5 +1,4 @@
-import { useFetchApi } from "@/app/services/useFetchApi";
-import Image from "next/image"
+
 import Link from "next/link";
 
 
