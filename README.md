@@ -29,6 +29,29 @@
 
 ## Construido Con 🛠️
 
+## Funcionalidades
+
+1. Lista de Servicios
+Presentamos una lista de profesionales del desarrollo tecnológico y los servicios que ofrecen.
+Los usuarios pueden explorar esta lista para encontrar el servicio que mejor se adapte a sus necesidades.
+![image](https://github.com/melitacasola/Hackaton-Marketplace-27/assets/102113745/b9f405b7-615b-4184-bd20-17d130de8e12)
+
+2. Detalles 
+Al hacer clic en un servicio en la lista, los usuarios pueden acceder a detalles completos sobre el profesional, incluyendo su experiencia, ubicación y datos de contacto.
+Esto facilita a los usuarios obtener información detallada antes de contactar al profesional.
+![image](https://github.com/melitacasola/Hackaton-Marketplace-27/assets/102113745/fac8ff8c-5d0c-4860-93d7-cbdbec8cd966)
+
+3. Funcionalidad de Búsqueda
+Ofrecemos un buscador intuitivo que permite a los usuarios encontrar rápidamente servicios específicos o profesionales.
+Los usuarios pueden buscar por nombre, ubicación o tipo de servicio para obtener resultados relevantes.
+![image](https://github.com/melitacasola/Hackaton-Marketplace-27/assets/102113745/9c391763-d718-4433-93a4-d7071dca9068)
+
+4. Navegación Fácil
+Implementamos controles de navegación simples que permiten a los usuarios moverse fácilmente entre los servicios y volver a la página de inicio.
+Esto garantiza una experiencia de usuario fluida y sin problemas mientras exploran la plataforma.
+
+
+
 ## 💻 Tecnologías
 - <img alt="mysql" src="https://camo.githubusercontent.com/b26699b50f121ded46e4f9f975eb7f48a9eb43e81582986c4b98766592576c01/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4d7953514c2d3030354338343f7374796c653d666f722d7468652d6261646765266c6f676f3d6d7973716c266c6f676f436f6c6f723d7768697465" data-canonical-src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&amp;logo=mysql&amp;logoColor=white" style="max-width: 100%;">
 - <img src="https://camo.githubusercontent.com/796db300af930c2a44ea729c4550eb38a45df38cd3d42b256f2a07b149484dec/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e6f64652532306a732d3333393933333f7374796c653d666f722d7468652d6261646765266c6f676f3d6e6f6465646f746a73266c6f676f436f6c6f723d7768697465" data-canonical-src="https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&amp;logo=nodedotjs&amp;logoColor=white" style="max-width: 100%;">
