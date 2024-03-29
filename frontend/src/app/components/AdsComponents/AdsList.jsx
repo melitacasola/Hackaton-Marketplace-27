@@ -1,8 +1,8 @@
 "use client"
-import { filterData } from "@/app/utils/filterData";
+import { filterData } from "../../utils/filterData";
 import AdsComponent from "./AdsComponent"
-import { useFetchApi } from '@/app/services/useFetchApi';
-import { useState,useEffect } from "react";
+import { useFetchApi } from '../../services/useFetchApi';
+
 
 
 

@@ -7,7 +7,8 @@ export default function Home({searchParams}) {
   const query = searchParams?.query
   return (
     <main className="flex min-h-screen flex-col items-center p-6">
-      <Search />
+      <h2>Estoy</h2>
+      {/* <Search /> */}
       
       <AdsList  query={query} />
     </main>
